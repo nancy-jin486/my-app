@@ -10,39 +10,87 @@ h1 { font-size: clamp(16px, 4vw + 1rem, 32px); line-height: 1.2; }
 h2 { font-size: clamp(20px, 3vw + 1rem, 32px); }
 p  { font-size: clamp(14px, 1.5vw + 1rem, 16px); line-height: 1.5; }
 
-/* Header & nav */
+:root {
+  --header-bg:  #cde2a0;
+  --brand:      #3c8949;
+  --text:       #222;
+  --header-h:   72px;
+  --nav-gap:    1.25rem;
+}
+
 #logo_header { width: 150px; height: auto; }
 #logo_footer { width: 48px;  height: auto; }
 
-header {
-  background-color: #cde2a0;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(205, 226, 160, 0.9);
+  backdrop-filter: saturate(180%) blur(8px);
   display: flex;
-  flex-direction: column;  /* mobile first */
+  flex-direction: column;
   justify-content: center;
+  padding: 16px 0 4px;
   align-items: center;
-  padding: 30px 0 0 0;
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-nav ul {
+.site-nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20%;
-  text-decoration: none;
+  gap: var(--nav-gap);
+  margin: 0.5rem 0 0;
+  padding: 0;
 }
 
 .navigation a {
   display: inline-block;
+  padding: 8px 10px;
+  border-radius: 8px;
   text-decoration: none;
-  color: #222;
+  color: var(--text);
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 .navigation a:hover {
-  color: #3c8949;
-  transition: color 0.3s;
-  text-decoration: underline;
+  color: var(--brand);
 }
+
+.navigation a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+html { scroll-behavior: smooth; }
+section, article[id] { scroll-margin-top: var(--header-h); }
+
+@media (min-width: 768px) {
+  .site-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+  }
+  
+  .site-nav ul {
+    margin: 0;          /* ✅ 桌面端去掉所有外边距 */
+  }
+
+  .site-nav {
+    margin-right: 5%;
+  }
+
+  #logo_header { 
+    margin: 0 5%;
+  }
+  
+  :root { --header-h: 64px; }
+}
+
 
 /* Hero */
 .hero { position: relative; }
@@ -125,11 +173,11 @@ article.highlight img {
 .btn {
   margin-top: 12px;
   padding: 10px 18px;
-  background-color: #3c8949;
+  background-color: #495E57;
   color: #fff;
   font-weight: 600;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 16px;
   transition: background-color 0.3s ease;
   display: inline-block;
 }
