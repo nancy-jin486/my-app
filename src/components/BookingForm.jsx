@@ -40,7 +40,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
           value={date}
           onChange={handleDateChange}
           required
-          min={todayStr}                 // ✅ HTML5: 不允许选择今天之前
+          min={todayStr}                 // HTML5: 不允许选择今天之前
           aria-invalid={date ? "false" : "true"}
           aria-describedby="dateHelp"
         />
@@ -57,7 +57,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
           value={time}
           onChange={(e) => setTime(e.target.value)}
           required
-          disabled={(availableTimes || []).length === 0}  // ✅ 没有可选时段就禁用
+          disabled={(availableTimes || []).length === 0}  // 没有可选时段就禁用
           aria-invalid={time ? "false" : "true"}
           aria-describedby="timeHelp"
         >
@@ -81,8 +81,8 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
         <input
           type="number"
           id="guests"
-          min={1}                         // ✅ HTML5: 下限
-          max={10}                        // ✅ HTML5: 上限
+          min={1}                         // HTML5: 下限
+          max={10}                        // HTML5: 上限
           value={guests}
           inputMode="numeric"
           onChange={(e) => setGuests(e.target.value)}
@@ -122,7 +122,7 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
 
       {/* 操作 */}
       <div className="form-actions">
-        <button className="btn" type="submit" disabled={!isValid}>
+        <button className="btn" type="submit" disabled={!isValid} aria-label="On Click - Make Your Reservation">
           Make Your Reservation
         </button>
       </div>

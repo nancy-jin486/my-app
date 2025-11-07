@@ -8,9 +8,9 @@ export default function ConfirmedBooking() {
   const { date, time, guests, occasion } = booking;
 
   return (
-    <section className="confirmed-page">
+    <section className="confirmed-page" role="region" aria-label="Booking confirmation details">
       <header className="page-header success">
-        <span className="badge">Confirmed</span>
+        <span className="badge" role="status" aria-live="polite">Confirmed</span>
         <h1>Booking Confirmed</h1>
         <p>Your table has been reserved. See you at Little Lemon!</p>
       </header>
@@ -24,8 +24,8 @@ export default function ConfirmedBooking() {
         </ul>
 
         <div className="form-actions" style={{ marginTop: 20 }}>
-          <Link className="btn" to="/booking">Make another reservation</Link>
-          <Link className="btn" to="/">Back to Home</Link>
+          <Link className="btn" to="/booking" aria-label="On Click - Make another reservation">Make another reservation</Link>
+          <Link className="btn" to="/" aria-label="On Click - Back to home page">Back to Home</Link>
         </div>
       </div>
     </section>

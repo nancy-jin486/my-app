@@ -8,13 +8,13 @@ export default function BookingPage({ availableTimes, dispatch, submitForm }) {
         <p>Please fill out the form below to make your reservation.</p>
       </header>
 
-      <div className="form-card">
+      <section className="form-card">
         <BookingForm
           availableTimes={availableTimes}
           dispatch={dispatch}
           submitForm={submitForm}
         />
-      </div>
+      </section>
     </section>
   );
 }
