@@ -248,12 +248,12 @@ article.highlight img {
   padding-bottom: 12px;
 }
 
-/* 卡片：参考 .highlight 的卡片语义，稍更中性 */
+/* 卡片 */
 .form-card,
 .details-card {
   max-width: 880px;
   margin: 0 auto;
-  background: #f7faf6;            /* 较浅的绿灰，贴近首页的清爽感 */
+  background: #f7faf6;            
   border-radius: 12px;
   padding: clamp(16px, 3vw, 28px);
   box-shadow: 0 4px 16px rgba(0,0,0,.06);
@@ -311,7 +311,7 @@ article.highlight img {
   color: var(--text);
 }
 
-/* 提示徽标（可选） */
+/* 提示徽标 */
 .badge {
   display: inline-block;
   padding: 6px 10px;
@@ -331,4 +331,19 @@ article.highlight img {
   .form-actions {
     grid-column: 1 / -1;
   }
+}
+
+
+.help-text { color: #6b6b6b; font-size: 0.9rem; }
+
+
+
+/* ✅ 禁用状态：淡灰绿色 + 半透明 + 禁用鼠标 */
+.btn:disabled {
+  background: #cde2a0;    /* 或改成 #ddd / #ccc 看你整体配色 */
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+  transform: none;
 }
